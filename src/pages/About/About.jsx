@@ -54,10 +54,6 @@ const About = () => {
           with aesthetics. Our mission is to make every purchase feel personal
           and rewarding.
         </p>
-
-        <button className="mt-8 px-6 py-3 bg-cyan-500 hover:bg-cyan-600 text-white rounded-lg shadow-md transition">
-          Explore Products
-        </button>
       </div>
     </section>
   );
