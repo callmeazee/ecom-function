@@ -56,11 +56,14 @@ const Products = () => {
               {/* Button */}
               <button
                 onClick={() => dispatch(addToCart(item))}
-                className="mt-auto px-5 py-2 text-sm rounded-lg transition font-medium 
-                 
-                   
-                     bg-blue-500 text-white hover:bg-blue-600 cursor-pointer">
+                className="mt-auto px-5 py-2 text-sm rounded-lg transition font-medium
+                 bg-blue-500 text-white hover:bg-blue-600 cursor-pointer">
                 Add to Cart
+              </button>
+              <button
+                className="mt-3 px-5 py-2 rounded-lg transition font-medium
+                 bg-blue-500 text-white hover:bg-blue-600 cursor-pointer" >
+                Remove
               </button>
             </div>
           );

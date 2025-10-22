@@ -47,7 +47,7 @@ function Header() {
             } border-b border-gray-100 hover:bg-gray-50 lg:hover:bg-transparent lg:border-0 hover:text-cyan-400 lg:p-0`
           }>
           <i className="ri-shopping-cart-2-line text-lg"></i>
-          {cartCount > 0 && (
+          {cartCount >=0 && (
             <span className="absolute top-2 right-2 bg-cyan-500 text-white text-xs font-semibold rounded-full px-2 py-1">
               {cartCount}
             </span>
