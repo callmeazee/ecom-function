@@ -2,8 +2,8 @@ import React from "react";
 import { useSelector } from "react-redux";
 import { NavLink } from "react-router-dom";
 function Header() {
-  const { items: cartItems } = useSelector((state) => state.cart);
-  const cartCount = cartItems.reduce((sum, item) => sum + item.quantity, 0);
+const cartCount = useSelector((state) => state.cart.totalCount);
+
 
   return (
     <header className="flex justify-between items-center px-6 py-4 shadow-sm bg-white">
