@@ -1,62 +1,85 @@
-import React from "react";
+
 import { useSelector } from "react-redux";
 import { NavLink } from "react-router-dom";
-function Header() {
-const cartCount = useSelector((state) => state.cart.totalCount);
 
+function Header() {
+  const cartCount = useSelector((state) => state.cart.totalCount);
 
   return (
-    <header className="flex justify-between items-center px-6 py-4 shadow-sm bg-white">
-      <h1 className="text-2xl font-bold text-gray-800">ShopLite</h1>
-      <nav className="flex gap-6 text-gray-600">
-        <NavLink
-          to="/"
-          className={({ isActive }) =>
-            isActive ? "text-cyan-400 " : "text-black"
-          }>
-          Home
-        </NavLink>
-        <NavLink
-          to="Products"
-          className={({ isActive }) =>
-            isActive ? "text-cyan-400" : "text-black"
-          }>
-          Products
-        </NavLink>
-        <NavLink
-          to="About"
-          className={({ isActive }) =>
-            isActive ? "text-cyan-400" : "text-black"
-          }>
-          About
-        </NavLink>
-        <NavLink
-          to="Contact"
-          className={({ isActive }) =>
-            `duration-200 ${
-              isActive ? "text-cyan-400" : "text-gray-700"
-            } border-b border-gray-100 hover:bg-gray-50 lg:hover:bg-transparent lg:border-0 hover:text-cyan-400 lg:p-0`
-          }>
-          Contact
-        </NavLink>
-        <NavLink
-          to="Cart"
-          className={({ isActive }) =>
-            `duration-200 ${
-              isActive ? "text-cyan-400" : "text-gray-700"
-            } border-b border-gray-100 hover:bg-gray-50 lg:hover:bg-transparent lg:border-0 hover:text-cyan-400 lg:p-0`
-          }>
-          <i className="ri-shopping-cart-2-line text-lg"></i>
-          {cartCount >=0 && (
-            <span className="absolute top-2 right-2 bg-cyan-500 text-white text-xs font-semibold rounded-full px-2 py-1">
-              {cartCount}
-            </span>
-          )}
-          {/* <span className=""></span> */}
-        </NavLink>
-      </nav>
+    <header className="sticky top-0 z-50 bg-white shadow-sm">
+      <div className="flex flex-wrap justify-between items-center px-4 py-3 sm:px-6">
+        {/* 🛍 Logo */}
+        <h1 className="text-2xl font-bold text-gray-800 mb-2 sm:mb-0">
+          ShopLite
+        </h1>
+
+        {/* 🌐 Navigation */}
+        <nav className="flex flex-wrap items-center gap-4 sm:gap-6 text-gray-700 font-medium">
+          <NavLink
+            to="/"
+            className={({ isActive }) =>
+              isActive
+                ? "text-cyan-500 border-b-2 border-cyan-500"
+                : "hover:text-cyan-500"
+            }>
+            Home
+          </NavLink>
+
+          <NavLink
+            to="/products"
+            className={({ isActive }) =>
+              isActive
+                ? "text-cyan-500 border-b-2 border-cyan-500"
+                : "hover:text-cyan-500"
+            }>
+            Products
+          </NavLink>
+
+          <NavLink
+            to="/about"
+            className={({ isActive }) =>
+              isActive
+                ? "text-cyan-500 border-b-2 border-cyan-500"
+                : "hover:text-cyan-500"
+            }>
+            About
+          </NavLink>
+
+          <NavLink
+            to="/contact"
+            className={({ isActive }) =>
+              isActive
+                ? "text-cyan-500 border-b-2 border-cyan-500"
+                : "hover:text-cyan-500"
+            }>
+            Contact
+          </NavLink>
+
+          {/* 🛒 Cart Icon + Badge */}
+          <div className="relative ml-2">
+            <NavLink
+              to="/cart"
+              className={({ isActive }) =>
+                `text-2xl duration-200 ${
+                  isActive
+                    ? "text-cyan-500"
+                    : "text-gray-700 hover:text-cyan-500"
+                }`
+              }>
+              <i className="ri-shopping-cart-2-line"></i>
+            </NavLink>
+
+            {cartCount >= 0 && (
+              <span className="absolute -top-2 -right-2 bg-cyan-500 text-white text-xs font-semibold rounded-full px-1.5 py-0.5">
+                {cartCount}
+              </span>
+            )}
+          </div>
+        </nav>
+      </div>
     </header>
   );
 }
 
 export default Header;
+
