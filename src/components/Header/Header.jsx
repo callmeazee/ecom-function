@@ -7,12 +7,10 @@ function Header() {
   return (
     <header className="sticky top-0 z-50 bg-white shadow-sm">
       <div className="flex flex-wrap justify-around items-center px-4 py-3 sm:px-6">
-        {/* 🛍 Logo */}
         <h1 className="text-2xl font-bold text-gray-800 mb-2 sm:mb-0">
           ShopLite
         </h1>
 
-        {/* 🌐 Navigation */}
         <nav className="flex flex-wrap items-center gap-4 sm:gap-6 text-gray-700 font-medium">
           <NavLink
             to="/"
