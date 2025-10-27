@@ -8,6 +8,7 @@ import Contact from "./pages/Contact/Contact.jsx";
 import Home from "./pages/Home/Home.jsx";
 import About from "./pages/About/About.jsx";
 import Cart from "./pages/Cart/Cart.jsx";
+import UserContext from "./context/UserContext.jsx";
 const router = createBrowserRouter([
   {
     path: "/",
@@ -41,6 +42,8 @@ const router = createBrowserRouter([
 
 createRoot(document.getElementById("root")).render(
   <StrictMode>
+
     <RouterProvider router={router} />
+
   </StrictMode>
 );
