@@ -11,12 +11,20 @@ import {
 } from "../../redux/Slice/CartSlice";
 
 const Products = () => {
+  const [debounceInput, setDebounceInput] = useState("");
   const [input, setInput] = useState("");
   const dispatch = useDispatch();
   const { filteredItems, categories, status } = useSelector(
     (state) => state.products
   );
   const { items: cartItems } = useSelector((state) => state.cart);
+
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      setDebounceInput(input);
+    }, 500);
+    return () => clearTimeout(timer);
+  }, [input]);
 
   useEffect(() => {
     dispatch(fetchProducts());
@@ -31,16 +39,14 @@ const Products = () => {
       <div className="text-center text-red-500">Failed to load products.</div>
     );
 
-  // ✅ Case-insensitive search filter
   const searchedProducts = filteredItems.filter((item) =>
-    item.title.toLowerCase().includes(input.toLowerCase())
+    item.title.toLowerCase().includes(debounceInput.toLowerCase())
   );
 
   const getCartItem = (id) => cartItems.find((i) => i.id === id);
 
   return (
     <div className="p-6 min-h-screen bg-gray-50">
-      {/* 🔍 Search Bar */}
       <div className="max-w-md mx-auto mb-8">
         <div className="relative">
           <input
